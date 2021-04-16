@@ -12,13 +12,21 @@ export class ClientService {
   listClients() {
     return this.Http.get(this.urlClients + '/list');
   }
-  createClient(myform) {
+
+    createClient(myform, selectedGender: any, selectedNationality: any) {
     this.client = {
       'firstName': myform.value.clientFirstName,
       'lastName': myform.value.clientLastName,
       'password' : myform.value.clientPassword,
       'email': myform.value.clientEmail,
-      'terms_conditions': myform.value.clientTerms
+      'address': myform.value.clientAddress,
+      'birthday':myform.value.clientBirthday,
+      'sexe' : selectedGender,
+      'telephoneNumber':myform.value.clientTelephoneNumber,
+      'job': myform.value.clientJob,
+      'earning' : myform.value.clientEarning,
+      'nationality' : selectedNationality,
+      'description' :myform.value.clientDescription,
     }
     return this.Http.post(this.urlClients + '/add', this.client);
   }

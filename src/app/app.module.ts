@@ -30,6 +30,7 @@ import { SignoutClientComponent } from './signout-client/signout-client.componen
 import { SignoutAdminComponent } from './signout-admin/signout-admin.component';
 import { ClientNewsfeedComponent } from './client-newsfeed/client-newsfeed.component';
 import { AdminNewsfeedComponent } from './admin-newsfeed/admin-newsfeed.component';
+import { CountriesListComponent } from './countries-list/countries-list.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +59,8 @@ import { AdminNewsfeedComponent } from './admin-newsfeed/admin-newsfeed.componen
     SignoutClientComponent,
     SignoutAdminComponent,
     ClientNewsfeedComponent,
-    AdminNewsfeedComponent
+    AdminNewsfeedComponent,
+    CountriesListComponent
   ],
   imports: [
     BrowserModule,

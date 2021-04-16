@@ -10,13 +10,22 @@ export class FreelancerService {
   listFreelancers() {
     return this.Http.get(this.urlFreelancers + '/list');
   }
-  createFreelancer(myform) {
+
+  createFreelancer(myform, gender: any, nationality: any) {
     this.freelancer = {
       'firstName': myform.value.freelancerFirstName,
       'lastName': myform.value.freelancerLastName,
       'password' : myform.value.freelancerPassword,
       'email': myform.value.freelancerEmail,
-      'terms_conditions': myform.value.freelancerTerms
+      'address': myform.value.freelancerAddress,
+      'birthday':myform.value.freelancerBirthday,
+      'sexe' : gender,
+      'telephoneNumber':myform.value.freelancerTelephoneNumber,
+      'job': myform.value.freelancerJob,
+      'earning' : myform.value.freelancerEarning,
+      'nationality' : nationality,
+      'description' :myform.value.freelancerDescription,
+
     }
     return this.Http.post(this.urlFreelancers + '/add', this.freelancer);
   }
