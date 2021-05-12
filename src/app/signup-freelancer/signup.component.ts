@@ -102,7 +102,14 @@ export class SignupComponent implements OnInit {
           sessionStorage.setItem('role', "freelancer");
           sessionStorage.setItem('firstName', myform.value.freelancerFirstName);
           sessionStorage.setItem('lastName', myform.value.freelancerLastName);
-
+          sessionStorage.setItem('address', myform.value.freelancerAddress);
+          sessionStorage.setItem('description', myform.value.freelancerDescription);
+          sessionStorage.setItem('earning', myform.value.freelancerEarning);
+          sessionStorage.setItem('job', myform.value.freelancerJob);
+          sessionStorage.setItem('rating', myform.value.freelancerRating);
+          sessionStorage.setItem('sexe', this.selectedGender);
+          sessionStorage.setItem('telephone_number', myform.value.freelancerTelephoneNumber);
+          sessionStorage.setItem('nationality', this.selectedNationality);
           this.router.navigate(['newsfeed-freelancer'])
         }
       );

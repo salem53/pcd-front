@@ -42,5 +42,16 @@ export class FreelancerAuthenticationService {
   logOut() {
     sessionStorage.removeItem('username')
     sessionStorage.removeItem('role')
+    sessionStorage.removeItem('firstName')
+    sessionStorage.removeItem('lastName')
+    sessionStorage.removeItem('description')
+    sessionStorage.removeItem('nationality')
+    sessionStorage.removeItem('telephone_number')
+    sessionStorage.removeItem('sexe')
+    sessionStorage.removeItem('job')
+    sessionStorage.removeItem('earning')
+    sessionStorage.removeItem('address')
+    sessionStorage.removeItem('rating')
+    sessionStorage.removeItem('inscription_date')
   }
 }
