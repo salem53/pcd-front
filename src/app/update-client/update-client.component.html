@@ -1,0 +1,72 @@
+<header id="head" class="secondary"></header>
+
+<!-- container -->
+<div class="container">
+
+  <ol class="breadcrumb" routerLinkActive="active">
+    <li><a routerLink="/home">Home</a></li>
+    <li class="active">Update Client</li>
+  </ol>
+
+  <div class="row">
+
+    <!-- Article main content -->
+    <article class="col-xs-12 maincontent">
+      <header class="page-header">
+        <h1 class="page-title">Update Client</h1>
+      </header>
+
+      <div class="col-md-6 col-md-offset-3 col-sm-8 col-sm-offset-2">
+        <div class="panel panel-default">
+          <div class="panel-body">
+            <h3 class="thin text-center">Update Client</h3>
+            <p class="text-center text-muted">Lorem ipsum dolor sit amet, <a routerLink="/signin-client">Login</a> adipisicing elit. Quo nulla quibusdam cum doloremque incidunt nemo sunt a tenetur omnis odio. </p>
+            <hr>
+
+            <form #myform="ngForm" (ngSubmit)="updateClient()">
+              <div class="top-margin">
+                <label>First Name</label>
+                <input [(ngModel)] = "_firstName" name="clientFirstName" type="text" class="form-control">
+              </div>
+              <div class="top-margin">
+                <label>Last Name</label>
+                <input [(ngModel)] = "_lastName" name="clientLastName" type="text" class="form-control">
+              </div>
+              <div class="top-margin">
+                <label>Email Address <span class="text-danger">*</span></label>
+                <input [(ngModel)] = "_email" name="clientEmail" type="text" class="form-control">
+              </div>
+              <input [(ngModel)] = "_password" name="clientPassword" type="hidden"  >
+              <input [(ngModel)] = "_id" name="clientId" type="hidden"  >
+              <input [(ngModel)] = "_terms_conditions" name="clientTerms" type="hidden"  >
+
+              <!-- <div class="row top-margin">
+                <div class="col-sm-6" type="hidden">
+                  <label>Password <span class="text-danger">*</span></label>
+
+                </div>
+               <div class="col-sm-6" type="hidden">
+                  <label>Confirm Password <span class="text-danger">*</span></label>
+                  <input type="text" class="form-control">
+                </div>-->
+
+              <hr>
+
+              <div class="row">
+
+                <div class="col-lg-4 text-right" routerLinkActive="active">
+                  <button class="btn btn-action" type="submit">Update</button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+
+      </div>
+
+    </article>
+    <!-- /Article -->
+
+  </div>
+</div>	<!-- /container -->
+

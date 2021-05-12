@@ -1,0 +1,39 @@
+<header id="head" class="secondary"></header>
+<table class="table">
+  <tbody>
+  <tr routerLinkActive="active">
+    <td><button  class="btn btn-default"><a routerLink="/freelancers">List Of Freelancers</a></button></td>
+    <td><button  class="btn btn-default"><a routerLink="/clients">List Of Clients</a></button></td>
+    <td><button  class="btn btn-default"><a routerLink="/admins">List of Admins</a></button></td>
+  </tr>
+  </tbody>
+  </table>
+  <ol class="breadcrumb" routerLinkActive="active">
+    <li><a routerLink="/home">Home</a></li>
+    <li class="active">List Of Clients</li>
+  </ol>
+<table class="table table-striped">
+  <thead>
+  <tr>
+    <th>Id</th>
+    <th>First Name</th>
+    <th>Last Name</th>
+    <th>Email</th>
+    <th>Delete</th>
+    <th>Update</th>
+  </tr>
+
+  </thead>
+  <tbody>
+  <tr *ngFor="let client of clients">
+    <td>{{client.id}}</td>
+    <td>{{client.firstName}}</td>
+    <td>{{client.lastName}}</td>
+    <td>{{client.email}}</td>
+    <td><button (click)="deleteClient(client)" class="btn btn-danger">Delete</button></td>
+    <td><button (click)="updateClient(client)" class="btn btn-warning">Update</button></td>
+  </tr>
+  </tbody>
+
+
+</table>

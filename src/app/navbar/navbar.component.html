@@ -1,0 +1,43 @@
+<!-- Fixed navbar -->
+<div class="navbar navbar-inverse navbar-fixed-top headroom" >
+  <div class="container">
+    <div class="navbar-header">
+      <!-- Button for smallest screens -->
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span> </button>
+      <a class="navbar-brand" routerLink="/home"><img src="assets/images/logo.png" alt="Progressus HTML5 template"></a>
+    </div>
+    <div class="navbar-collapse collapse">
+      <ul class="nav navbar-nav pull-right" routerLinkActive="active">
+        <li class="active" ><a routerLink="/home" >Home</a></li>
+        <li><a routerLink="/about">About</a></li>
+        <li class="dropdown">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">More Pages <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="sidebar-left">Left Sidebar</a></li>
+            <li class="active"><a routerLink="sidebar-right">Right Sidebar</a></li>
+          </ul>
+        </li>
+        <li><a routerLink="/contact"><i class="fa fa-address-book"></i>Contact</a></li>
+        <li *ngIf="loginService.isUserLoggedIn()"><a routerLink="/newsfeed-freelancer"><i class="fa fa-user"></i> Profile</a></li>
+        <li *ngIf="loginServiceClient.isUserLoggedIn()"><a routerLink="/newsfeed-client"><i class="fa fa-user"></i> Profile</a></li>
+        <li *ngIf="loginServiceAdmin.isUserLoggedIn()"><a routerLink="/newsfeed-admin"><i class="fa fa-user"></i> Profile</a></li>
+        <li *ngIf="loginService.isUserLoggedIn()"><a routerLink="/signout-freelancer">SIGN OUT</a></li>
+        <li *ngIf="loginServiceClient.isUserLoggedIn()"><a routerLink="/signout-client">SIGN OUT</a></li>
+        <li *ngIf="loginServiceAdmin.isUserLoggedIn()"><a routerLink="/signout-admin">SIGN OUT</a></li>
+
+        <li class="dropdown" *ngIf="!loginService.isUserLoggedIn() && !loginServiceClient.isUserLoggedIn() && !loginServiceAdmin.isUserLoggedIn()">
+          <a href="#" class="dropdown-toggle" data-toggle="dropdown">SIGN IN / SIGN UP <b class="caret"></b></a>
+          <ul class="dropdown-menu">
+            <li><a routerLink="/signin-freelancer">Freelancer</a></li>
+            <li class="active"><a routerLink="/signin-client">Client</a></li>
+            <!--<li class="active"><a routerLink="/signin-admin">Admin</a></li>-->
+          </ul>
+        </li>
+
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+<!-- /.navbar -->
+<router-outlet></router-outlet>
