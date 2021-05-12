@@ -25,7 +25,8 @@ import {SignoutAdminComponent} from "./signout-admin/signout-admin.component";
 import {ClientNewsfeedComponent} from "./client-newsfeed/client-newsfeed.component";
 import {AdminNewsfeedComponent} from "./admin-newsfeed/admin-newsfeed.component";
 import {AdminAuthguardService} from "./services/admin/admin-authguard.service";
-import {ClientAuthguardService} from "./services/client/client-authguard.service"
+import {ClientAuthguardService} from "./services/client/client-authguard.service";
+import {TestFlaskComponent} from "./test-flask/test-flask.component";
 import {PaypalTestComponent} from "./paypal-test/paypal-test.component";
 import {PdfTestComponent} from "./pdf-test/pdf-test.component";
 
@@ -35,6 +36,7 @@ const routes: Routes = [
   { path: 'home', component: HomeComponent },
   { path: 'paypal', component: PaypalTestComponent },
   { path: 'pdfTest', component: PdfTestComponent },
+  { path: 'test', component: TestFlaskComponent },
   { path: 'about', component: AboutComponent },
   { path: 'contact', component: ContactComponent },
   { path: 'sidebar-left', component: SidebarLeftComponent },

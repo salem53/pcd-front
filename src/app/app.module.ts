@@ -30,8 +30,16 @@ import { SignoutClientComponent } from './signout-client/signout-client.componen
 import { SignoutAdminComponent } from './signout-admin/signout-admin.component';
 import { ClientNewsfeedComponent } from './client-newsfeed/client-newsfeed.component';
 import { AdminNewsfeedComponent } from './admin-newsfeed/admin-newsfeed.component';
-import { PdfTestComponent } from './pdf-test/pdf-test.component';
+import { CountriesListComponent } from './countries-list/countries-list.component';
+import { TestFlaskComponent } from './test-flask/test-flask.component';
 import { PaypalTestComponent } from './paypal-test/paypal-test.component';
+import { PdfTestComponent } from './pdf-test/pdf-test.component';
+import { PhotosVideosComponent } from './profile/photos-videos/photos-videos.component';
+import { TimelineComponent } from './profile/timeline/timeline.component';
+import { ProfileAboutComponent } from './profile/profile-about/profile-about.component';
+import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
+import {RouterModule} from "@angular/router";
+
 
 @NgModule({
   declarations: [
@@ -61,14 +69,22 @@ import { PaypalTestComponent } from './paypal-test/paypal-test.component';
     SignoutAdminComponent,
     ClientNewsfeedComponent,
     AdminNewsfeedComponent,
+    CountriesListComponent,
+    TestFlaskComponent,
+    PaypalTestComponent,
     PdfTestComponent,
-    PaypalTestComponent
+    PhotosVideosComponent,
+    TimelineComponent,
+    ProfileAboutComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    BrowserAnimationsModule,
+    HttpClientModule,
+
   ],
   providers: [],
   bootstrap: [AppComponent]
