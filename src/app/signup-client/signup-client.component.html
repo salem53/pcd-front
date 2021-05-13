@@ -49,16 +49,16 @@
                 </div>
               </div>
               <div class="top-margin">
-                <label> Address</label>
+                <label> <span class="text-danger">*</span>Address</label>
                 <input ngModel name="clientAddress" type="text" class="form-control">
               </div>
               <div class="row top-margin">
                 <div class="col-sm-6">
-                  <label>Birthday</label>
+                  <label><span class="text-danger">*</span>Birthday</label>
                   <input ngModel name="clientBirthday" type="date" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                  <label for="gender">Gender</label>
+                  <label for="gender"><span class="text-danger">*</span>Gender</label>
                   <br>
                   <select [(ngModel)]="selectedGender" name="gender" id="gender" style="width:240px;height:30px;" >
                     <option value="Male" >Male</option>
@@ -70,12 +70,12 @@
               </div>
               <div class="row top-margin">
                 <div class="col-sm-6">
-                  <label>Telephone Number  </label>
+                  <label><span class="text-danger">*</span>Telephone Number  </label>
                   <input ngModel name="clientTelephoneNumber" type="tel" class="form-control">
                 </div>
                 <div class="col-sm-6" >
                   <!-- countries list -->
-                  <label for="nationality"> Nationality</label>
+                  <label for="nationality"> <span class="text-danger">*</span>Nationality</label>
                   <select [(ngModel)]="_selectedNationality" name="nationality" id="nationality" style="width:240px;height:30px;">
                     <option value="afghan" >Afghan</option>
                     <option value="albanian">Albanian</option>
@@ -280,17 +280,17 @@
               </div>
               <div class=" row top-margin">
                 <div class="col-sm-6">
-                  <label>Job</label>
+                  <label><span class="text-danger">*</span>Job</label>
                   <input ngModel name="clientJob" type="text" class="form-control">
                 </div>
                 <div class="col-sm-6">
-                  <label>Earning Per Hour  </label>
-                  <input type="clientEarning" class="form-control">
+                  <label><span class="text-danger">*</span>Earning Per Hour  </label>
+                  <input ngModel name="clientEarning" type="text" class="form-control">
                 </div>
               </div>
 
               <div class="row top-margin">
-                <label>  &nbsp; &nbsp; &nbsp; Description </label>
+                <label>  &nbsp; &nbsp; &nbsp; <span class="text-danger">*</span>Description </label>
                 <textarea ngModel name="clientDescription" type="text" class="form-control" rows="6">
                 </textarea>
               </div>

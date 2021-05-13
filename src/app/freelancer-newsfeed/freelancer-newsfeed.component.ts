@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-
+import {HttpClient} from "@angular/common/http";
+import pdfMake from "pdfmake/build/pdfmake";
+import pdfFonts from "pdfmake/build/vfs_fonts";
+pdfMake.vfs = pdfFonts.pdfMake.vfs;
 @Component({
   selector: 'app-freelancer-newsfeed',
   templateUrl: './freelancer-newsfeed.component.html',
@@ -7,6 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class FreelancerNewsfeedComponent implements OnInit {
 
+  //image details
+  selectedFile: File;
+
+  Image='https://bootdey.com/img/Content/avatar/avatar7.png';
+
+  base64Data: any;
+
+  freelancer: any;
+
+  message: string;
+  //session variables
+  imageName: any;
   email: string;
   firstName: string;
   lastName: string;
@@ -19,7 +34,9 @@ export class FreelancerNewsfeedComponent implements OnInit {
   sexe: any;
   telephone_number: any;
   nationality: any;
-  constructor() { }
+  constructor(private httpClient: HttpClient) {
+    this.getImage();
+  }
 
   ngOnInit(): void {
     this.email = sessionStorage.getItem("username");
@@ -36,4 +53,152 @@ export class FreelancerNewsfeedComponent implements OnInit {
     this.nationality=sessionStorage.getItem('nationality');
   }
 
+  onChange(event) {
+    this.selectedFile = event.target.files[0];
+    console.log(this.selectedFile);
+    this.onUpload();
+  }
+
+  onUpload() {
+    console.log("upload");
+    console.log(this.selectedFile);
+
+    //FormData API provides methods and properties to allow us easily prepare form data to be sent with POST HTTP requests.
+    const uploadImageData = new FormData();
+    uploadImageData.append('imageFile', this.selectedFile, this.selectedFile.name);
+    //Make a call to the Spring Boot Application to save the image
+    this.httpClient.post('http://127.0.0.1:8070/freelancers/saveImageByEmail/'+sessionStorage.getItem("username"), uploadImageData, { observe: 'response' })
+      .subscribe((response) => {
+        if (response.status === 200) {
+          this.message = 'Image uploaded successfully';
+        } else {
+          this.message = 'Image not uploaded successfully';
+        }
+        this.getImage();
+      }
+  );
+  }
+  //Gets called when the user clicks on retieve image button to get the image from back end
+  45
+  getImage() {
+    //Make a call to Sprinf Boot to get the Image Bytes.
+    this.httpClient.get('http://127.0.0.1:8070/freelancers/getImageByEmail/'+sessionStorage.getItem("username"))
+
+      .subscribe(
+
+    res => {
+
+      this.freelancer = res;
+      this.base64Data = this.freelancer.image;
+      this.Image = 'data:image/jpeg;base64,' + this.base64Data;
+    }
+  );
+
+  }
+
+  //pdf content
+  public docDefinition = {
+    /*header: 'Resume',*/
+    content: [
+      {
+        text: 'Resume',
+        fontSize: 16,
+        alignment: 'center',
+        color: '#047886'
+      },
+      {
+        text: sessionStorage.getItem("firstName")+" "+ sessionStorage.getItem("lastName"),
+        fontSize: 20,
+        bold: true,
+        alignment: 'center',
+        decoration: 'underline',
+        color: 'skyblue'
+      },
+      {
+        text: 'Freelancer Details',
+        style: 'sectionHeader'
+      },
+      {
+        columns: [
+          [
+            {
+              text: sessionStorage.getItem("firstName")+" "+ sessionStorage.getItem("lastName"),
+              bold: true
+            },
+            { text: sessionStorage.getItem("address")},
+            { text: sessionStorage.getItem("username") },
+            { text: sessionStorage.getItem("telephone_number") }
+          ],
+          [
+            {
+              text: `Date: ${new Date().toLocaleString()}`,
+              alignment: 'right'
+            },
+            {
+              text: `Bill No : ${((Math.random() * 1000).toFixed(0))}`,
+              alignment: 'right'
+            }
+          ]
+        ]
+      },
+      {
+        text: 'Freelancer Details',
+        style: 'sectionHeader'
+      },
+      {
+        ul: [
+          sessionStorage.getItem("description"),
+
+        ],
+      },
+      {
+        text: 'Skills Details',
+        style: 'sectionHeader'
+      },
+      {
+        table: {
+          headerRows: 1,
+          widths: ['*', 'auto', 'auto', 'auto'],
+          body: [
+            ['Language', 'skills', 'education', 'date'],
+            ['French', 'Java', 'ensi', '19/05/2020'],
+            ['english', 'c++', 'ensi', '29/05/2020'],
+            ['arabic', 'linux', 'ensi', '29/05/2021'],
+
+          ]
+        }
+      },
+      {
+        columns: [
+          [{ qr: "salem", fit: '50' }],
+          [{ text: 'Signature', alignment: 'right', italics: true }],
+        ]
+      },
+
+    ],
+    styles: {
+      sectionHeader: {
+        bold: true,
+        decoration: 'underline',
+        fontSize: 14,
+        margin: [0, 15, 0, 15]
+      }
+    }
+  };
+  //create and open pdf in new window
+  onOpen() {
+
+    pdfMake.createPdf(this.docDefinition).open();
+
+  }
+  //create and print pdf
+  onPrint() {
+
+    pdfMake.createPdf(this.docDefinition).print();
+  }
+  //create and download pdf
+  onDownload() {
+
+    pdfMake.createPdf(this.docDefinition).download();
+  }
 }

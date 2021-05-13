@@ -60,6 +60,11 @@ export class SignupComponent implements OnInit {
     let password : string = myform.value.freelancerPassword;
     let passwordConfirmation   : string = myform.value.freelancerPasswordConfirmation;
     let email  : string = myform.value.freelancerEmail;
+    let address  : string = myform.value.freelancerAddress;
+    let description : string = myform.value.freelancerDescription;
+    let job : string = myform.value.freelancerJob;
+    let earning : string = myform.value.freelancerEarning;
+    let phone : string = myform.value.freelancerTelephoneNumber;
     let atposition=email.indexOf("@");
     let dotposition=email.lastIndexOf(".");
     if (firstName==null || firstName=="" || lastName==null || lastName=="") {
@@ -80,6 +85,34 @@ export class SignupComponent implements OnInit {
           /*console.log(password);
           console.log(passwordConfirmation);*/
         }
+      else if(address==null || address=="") {
+      this.errorMessage ="Please enter your address";
+      this.invalidLogin =true;
+      }
+    else if(this.selectedGender==null || this.selectedGender=="") {
+      this.errorMessage ="Please enter your gender";
+      this.invalidLogin =true;
+    }
+    else if(phone==null || phone=="") {
+      this.errorMessage ="Please enter your phone";
+      this.invalidLogin =true;
+    }
+    else if(this.selectedNationality==null || this.selectedNationality=="") {
+      this.errorMessage ="Please enter your nationality";
+      this.invalidLogin =true;
+    }
+    else if(job==null || job=="") {
+      this.errorMessage ="Please enter your job";
+      this.invalidLogin =true;
+    }
+    else if(earning==null || earning=="") {
+      this.errorMessage ="Please enter your earning";
+      this.invalidLogin =true;
+    }
+    else if(description==null || description=="") {
+      this.errorMessage ="Please enter your description";
+      this.invalidLogin =true;
+    }
         else if (!this.terms){
            this.errorMessage ="Please read the Terms and Conditions";
             this.invalidLogin =true;

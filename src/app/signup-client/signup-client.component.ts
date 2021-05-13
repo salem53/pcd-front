@@ -67,6 +67,11 @@ export class SignupClientComponent implements OnInit {
     let password : string = myform.value.clientPassword;
     let passwordConfirmation   : string = myform.value.clientPasswordConfirmation;
     let email  : string = myform.value.clientEmail;
+    let address  : string = myform.value.clientAddress;
+    let description : string = myform.value.clientDescription;
+    let job : string = myform.value.clientJob;
+    let earning : string = myform.value.clientEarning;
+    let phone : string = myform.value.clientTelephoneNumber;
     let atposition=email.indexOf("@");
     let dotposition=email.lastIndexOf(".");
     if (firstName==null || firstName=="" || lastName==null || lastName=="") {
@@ -87,6 +92,34 @@ export class SignupClientComponent implements OnInit {
       console.log(password);
       console.log(passwordConfirmation);
     }
+    else if(address==null || address=="") {
+      this.errorMessage ="Please enter your address";
+      this.invalidLogin =true;
+    }
+    else if(this.selectedGender==null || this.selectedGender=="") {
+      this.errorMessage ="Please enter your gender";
+      this.invalidLogin =true;
+    }
+    else if(phone==null || phone=="") {
+      this.errorMessage ="Please enter your phone";
+      this.invalidLogin =true;
+    }
+    else if(this.selectedNationality==null || this.selectedNationality=="") {
+      this.errorMessage ="Please enter your nationality";
+      this.invalidLogin =true;
+    }
+    else if(job==null || job=="") {
+      this.errorMessage ="Please enter your job";
+      this.invalidLogin =true;
+    }
+    else if(earning==null || earning=="") {
+      this.errorMessage ="Please enter your earning";
+      this.invalidLogin =true;
+    }
+    else if(description==null || description=="") {
+      this.errorMessage ="Please enter your description";
+      this.invalidLogin =true;
+    }
     else if (!this.terms){
       this._errorMessage ="Please read the Terms and Conditions";
       this._invalidLogin =true;
@@ -103,11 +136,19 @@ export class SignupClientComponent implements OnInit {
     if(!this.invalidLogin) {
       this.service.createClient(myform,this.selectedGender,this.selectedNationality).subscribe(
         response => {
-          sessionStorage.setItem('username', myform.value.clientEamil);
+          sessionStorage.setItem('username', myform.value.clientEmail);
           /*sessionStorage.setItem('password', password)*/
           sessionStorage.setItem('role', "client");
           sessionStorage.setItem('firstName', myform.value.clientFirstName);
           sessionStorage.setItem('lastName', myform.value.clientLastName);
+          sessionStorage.setItem('address', myform.value.clientAddress);
+          sessionStorage.setItem('description', myform.value.clientDescription);
+          sessionStorage.setItem('earning', myform.value.clientEarning);
+          sessionStorage.setItem('job', myform.value.clientJob);
+          sessionStorage.setItem('rating', myform.value.clientRating);
+          sessionStorage.setItem('sexe', this.selectedGender);
+          sessionStorage.setItem('telephone_number', myform.value.clientTelephoneNumber);
+          sessionStorage.setItem('nationality', this.selectedNationality);
 
           this.router.navigate(['newsfeed-client'])
           /*console.log(response);
