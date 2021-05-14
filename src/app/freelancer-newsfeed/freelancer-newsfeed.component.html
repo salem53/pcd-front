@@ -28,7 +28,9 @@
 
                 <input type="file" id="actual-btn" style="visibility:hidden" (change)="onChange($event)"/>
                 <!-- profile photo change -->
-                <button class="btn btn-outline-primary">Edit Profile</button>
+
+                <a routerLink="/update-freelancer-profile"><button class="btn btn-outline-primary">Edit Profile</button></a>
+
               </div>
             </div>
           </div>
@@ -179,6 +181,16 @@
         <div class="card mb-3">
           <div class="card-body">
             <div class="row">
+              <div class="col-sm-6">
+
+                <h6 class="mb-0 gauche" >Inscription :  </h6>
+              </div>
+              <div class="col-sm-6 gauche">
+                {{inscription_date}}
+              </div>
+            </div>
+            <hr>
+            <div class="row">
               <div class="col-sm-5">
 
                 <h6 class="mb-0 gauche" style="color:darkgreen">Earning <i class="fa fa-money"></i> </h6>
@@ -188,7 +200,7 @@
               </div>
             </div>
             <div class="row">
-              <h3 style="color:darkslategray">Press to build a cv :</h3>
+              <h3 style="color:darkslategray"> &nbsp;&nbsp;&nbsp;Press to build a cv :</h3>
             </div>
             <div class="row">
               <div class="col-sm-4"><button class="btn btn-success" (click)="onOpen()">Open</button></div>

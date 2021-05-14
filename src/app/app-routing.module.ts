@@ -29,6 +29,8 @@ import {ClientAuthguardService} from "./services/client/client-authguard.service
 import {TestFlaskComponent} from "./test-flask/test-flask.component";
 import {PaypalTestComponent} from "./paypal-test/paypal-test.component";
 import {PdfTestComponent} from "./pdf-test/pdf-test.component";
+import {UpdateFreelancerDataProfileComponent} from "./update-freelancer-data-profile/update-freelancer-data-profile.component";
+import {UpdateClientDataProfileComponent} from "./update-client-data-profile/update-client-data-profile.component";
 
 const routes: Routes = [
 
@@ -44,10 +46,12 @@ const routes: Routes = [
   { path: 'signin-freelancer', component: SigninComponent },
   { path: 'signup-freelancer', component: SignupComponent },
   { path: 'signout-freelancer', component: SignoutFreelancerComponent,canActivate: [FreelancerAuthGuardService] },
+  { path: 'update-freelancer-profile', component: UpdateFreelancerDataProfileComponent,canActivate: [FreelancerAuthGuardService] },
   { path: 'newsfeed-freelancer', component: FreelancerNewsfeedComponent,canActivate: [FreelancerAuthGuardService] },
   { path: 'freelancers', component: ListFreelancersComponent,canActivate: [AdminAuthguardService] },
   { path: 'signin-client', component: SigninClientComponent },
   { path: 'signup-client', component: SignupClientComponent },
+  { path: 'update-client-profile', component: UpdateClientDataProfileComponent,canActivate: [ClientAuthguardService] },
   { path: 'signout-client', component: SignoutClientComponent,canActivate: [ClientAuthguardService] },
   { path: 'newsfeed-client', component: ClientNewsfeedComponent ,canActivate: [ClientAuthguardService]},
   { path: 'clients', component: ListClientsComponent,canActivate: [AdminAuthguardService] },

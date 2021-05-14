@@ -39,6 +39,8 @@ import { TimelineComponent } from './profile/timeline/timeline.component';
 import { ProfileAboutComponent } from './profile/profile-about/profile-about.component';
 import {BrowserAnimationsModule} from "@angular/platform-browser/animations";
 import {RouterModule} from "@angular/router";
+import { UpdateFreelancerDataProfileComponent } from './update-freelancer-data-profile/update-freelancer-data-profile.component';
+import { UpdateClientDataProfileComponent } from './update-client-data-profile/update-client-data-profile.component';
 
 
 @NgModule({
@@ -75,7 +77,9 @@ import {RouterModule} from "@angular/router";
     PdfTestComponent,
     PhotosVideosComponent,
     TimelineComponent,
-    ProfileAboutComponent
+    ProfileAboutComponent,
+    UpdateFreelancerDataProfileComponent,
+    UpdateClientDataProfileComponent
   ],
   imports: [
     BrowserModule,

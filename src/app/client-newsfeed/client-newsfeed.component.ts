@@ -92,6 +92,32 @@ export class ClientNewsfeedComponent implements OnInit {
           this.freelancer = res;
           this.base64Data = this.freelancer.image;
           this.Image = 'data:image/jpeg;base64,' + this.base64Data;
+
+          this.email=this.freelancer.email;
+          this.firstName=this.freelancer.firstName;
+          this.lastName=this.freelancer.lastName;
+          this.address=this.freelancer.address;
+          this.description=this.freelancer.description;
+          this.earning=this.freelancer.earning;
+          this.inscription_date=this.freelancer.inscriptionDate;
+          this.job=this.freelancer.job;
+          this.rating=this.freelancer.rating;
+          this.sexe=this.freelancer.rating;
+          this.telephone_number=this.freelancer.telephoneNumber;
+          this.nationality=this.freelancer.nationality;
+
+          sessionStorage.setItem("username",this.email);
+          sessionStorage.setItem("firstName",this.firstName);
+          sessionStorage.setItem("lastName",this.lastName);
+          sessionStorage.setItem('address',this.address);
+          sessionStorage.setItem('description',this.description);
+          sessionStorage.setItem('earning',this.earning);
+          sessionStorage.setItem('inscription_date', this.inscription_date);
+          sessionStorage.setItem('job',this.job);
+          sessionStorage.setItem('rating',this.rating);
+          sessionStorage.setItem('sexe',this.sexe);
+          sessionStorage.setItem('telephone_number', this.telephone_number);
+          sessionStorage.setItem('nationality',this.nationality);
         }
       );
 
