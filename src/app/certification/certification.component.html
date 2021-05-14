@@ -1,0 +1,74 @@
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <h2>New Certification</h2>
+        <p class="lead">
+           
+            <small class="text-muted">Add new one in order to ameriorate your profil</small>
+        </p>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-8">
+
+                <h4 class="page-header">Default Implementation</h4>
+                <form role="form" #myForm=ngForm (ngSubmit)= newCertification(myForm)>
+                    <div class="alert alert-warning" *ngIf='invalid'>{{errorMessage}}</div> <!--ce message n'est afficher que si lorsque invalid=true-->
+                    <div class="form-group float-label-control">
+                        <label for="">Certification Title</label>
+                        <input type="text" class="form-control" placeholder="name" #name="ngModel" name="name" [(ngModel)]="certif.name" required>
+                    </div>
+                    <div [hidden]="name.valid || name.pristine">The certification Title is required </div>
+                    <div class="form-group float-label-control">
+                        <label for=""> Organism: </label>
+                        <input type="text" class="form-control" placeholder="organism" #organism="ngModel" rows="1" name="organism" [(ngModel)]="certif.organism" required>
+                    </div>
+                    <div [hidden]="organism.valid || organism.pristine ">The organism name is required </div>
+                    
+                       
+                    <div class="form-group float-label-control">
+                        <label for=""> Date </label>
+                        <input type="date" class="form-control" placeholder="date" #date="ngModel" rows="1" name="date" [(ngModel)]="certified.date" required>
+                    </div>
+                    <div [hidden]="date.valid ||  date.pristine ">The date  is required </div>
+
+                    <div class="form-group float-label-control">
+                        <label for="">URL : </label>
+                        <input type="text" class="form-control" placeholder="url" #url="ngModel" rows="1" name="url" [(ngModel)]="certified.url" >
+                    </div>
+                    <div class="form-group float-label-control">
+                        <label for=""> File </label>
+                        <input type="file" class="form-control" placeholder="file" #file="ngModel" rows="1" name="file" [(ngModel)]="certified.file" (change)="onFileChanged($event)" >
+                    </div>
+                     
+                    <button class="btn btn-action" type="submit" [disabled]=!myForm.valid > Submit </button>
+                                                                                                    <!--(click)="onUpload()" (change)="onFileChanged($event)"-->
+                </form>
+
+                   
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Features
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Very customizable</li>
+                            <li>Works with Bootstrap's native form examples</li>
+                            <li>Uses CSS transitions for fallback browser support</li>
+                            <li>Placeholder override for labels when fields are empty</li>
+                            <li>Included authored jQuery plugin</li>
+                            <li>Optional bottom label positioning with the <code>.label-bottom</code> utility</li>
+                            <li>Works great with Chrome's AutoComplete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

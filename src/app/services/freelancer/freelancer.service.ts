@@ -33,6 +33,6 @@ export class FreelancerService {
   getFreelancerByEmail(email){
     return this.Http.get(this.urlFreelancers+'/getFreelancerByEmail/'+email)
   }
-
+ 
 }
 

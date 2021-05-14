@@ -1,0 +1,80 @@
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <h2>New Education's Experience</h2>
+        <p class="lead">
+           
+            <small class="text-muted">Add new one in order to ameriorate your profil</small>
+        </p>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-8">
+
+                <h4 class="page-header">Default Implementation</h4>
+                <form role="form" #myForm=ngForm (ngSubmit)= newEducation(myForm)>
+                    <div class="alert alert-warning" *ngIf='invalid'>{{errorMessage}}</div> <!--ce message n'est afficher que si lorsque invalid=true-->
+                  
+                    <div class="form-group float-label-control">
+                        <label for="">School</label>
+                        <input type="text" class="form-control" placeholder="school" #school="ngModel" name="school" [(ngModel)]="education.school" required >
+                    </div>
+                    <div [hidden]="school.valid || school.pristine">The School name is required </div>
+                    <div class="form-group float-label-control">
+                        <label for=""> Degree Type: </label>
+                        <input type="text" class="form-control" placeholder="degree" #degree="ngModel" rows="1" name="degree" [(ngModel)]="education.degree" required>
+                    </div>
+                    <div [hidden]="degree.valid || degree.pristine ">The degree type is required </div>
+                    
+                       
+                    <div class="form-group float-label-control">
+                        <label for=""> Beginning Date </label>
+                        <input type="date" class="form-control" placeholder="beginning Date" #beginningDate="ngModel" rows="1" name="beginningDate" [(ngModel)]="study.beginningDate" required>
+                    </div>
+                    <div [hidden]="beginningDate.valid ||  beginningDate.pristine ">The beginning Date  is required </div>
+                    
+                    <div class="form-group float-label-control">
+                        <label for=""> Ending Date </label>
+                        <input type="date" class="form-control" placeholder="ending Date" #endDate="ngModel" rows="1" name="endDate" [(ngModel)]="study.endDate" required>
+                    </div>
+                    <div [hidden]="endDate.valid ||  endDate.pristine ">The ending Date  is required </div>
+                   
+                    
+                    <div class="form-group float-label-control">
+                        <label for="">Description : </label>
+                        <input type="text" class="form-control" placeholder="description" #description="ngModel" rows="1" name="description" [(ngModel)]="study.description" >
+                    </div>
+
+               
+                     
+                    <button class="btn btn-action" type="submit" [disabled]=!myForm.valid > Submit </button>
+                                                                               
+                </form>
+
+                   
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Features
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Very customizable</li>
+                            <li>Works with Bootstrap's native form examples</li>
+                            <li>Uses CSS transitions for fallback browser support</li>
+                            <li>Placeholder override for labels when fields are empty</li>
+                            <li>Included authored jQuery plugin</li>
+                            <li>Optional bottom label positioning with the <code>.label-bottom</code> utility</li>
+                            <li>Works great with Chrome's AutoComplete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

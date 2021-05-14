@@ -30,6 +30,12 @@ import { SignoutClientComponent } from './signout-client/signout-client.componen
 import { SignoutAdminComponent } from './signout-admin/signout-admin.component';
 import { ClientNewsfeedComponent } from './client-newsfeed/client-newsfeed.component';
 import { AdminNewsfeedComponent } from './admin-newsfeed/admin-newsfeed.component';
+import { ExperienceComponent } from './experience/experience.component';
+import { CertificationComponent } from './certification/certification.component';
+import { AddMissionComponent } from './add-mission/add-mission.component';
+import { ProfilClientComponent } from './profil-client/profil-client.component';
+import { AddSkillComponent } from './add-skill/add-skill.component';
+import { AddStudyComponent } from './add-study/add-study.component';
 
 @NgModule({
   declarations: [
@@ -58,7 +64,13 @@ import { AdminNewsfeedComponent } from './admin-newsfeed/admin-newsfeed.componen
     SignoutClientComponent,
     SignoutAdminComponent,
     ClientNewsfeedComponent,
-    AdminNewsfeedComponent
+    AdminNewsfeedComponent,
+    ExperienceComponent,
+    CertificationComponent,
+    AddMissionComponent,
+    ProfilClientComponent,
+    AddSkillComponent,
+    AddStudyComponent
   ],
   imports: [
     BrowserModule,

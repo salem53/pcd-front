@@ -1,0 +1,88 @@
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <h2>New Mission</h2>
+        <p class="lead">
+           
+            <small class="text-muted">Add new one in order to ameriorate your profil</small>
+        </p>
+
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-8">
+
+              <!--<h4 class="page-header">Default Implementation</h4>-->  
+                <form role="form" #myForm=ngForm (ngSubmit)= newMission(myForm)>
+                   <!-- <div class="form-group float-label-control">
+                        <label for="">id</label>
+                        <input type="text" class="form-control" placeholder="Username" name="id"  >
+                    </div>
+                    -->
+                    <div class="form-group float-label-control">
+                        <label for="">Mission Title</label>
+                        <input type="text" class="form-control" placeholder="title" #title="ngModel" name="title" [(ngModel)]="mission.title" required>
+                    </div>
+                    <div [hidden]="title.valid || title.pristine">The mission Title is required </div>
+           
+                    <div class="form-group float-label-control">
+                        <label for=""> Description: </label>
+                        <input type="text" class="form-control" placeholder="description" #description="ngModel" rows="1" name="description" [(ngModel)]="mission.description" required>
+                    </div>
+                    <div [hidden]="description.valid || description.pristine ">The description is required </div>
+                   
+                    <div class="form-group float-label-control">
+                        <label for=""> Technologies required: </label>
+                        <input type="text" class="form-control" placeholder="Technologies" #technologies="ngModel" rows="1" name="technologies" [(ngModel)]="mission.technologies" required>
+                    </div>
+                    <div [hidden]="technologies.valid || technologies.pristine ">Technologies are required </div>
+                       
+                    
+                    <div class="form-group float-label-control">
+                        <label for=""> Duration </label>
+                        <input type="text" class="form-control" placeholder="date" #duration="ngModel" rows="1" name="duration" [(ngModel)]="mission.duration" required>
+                    </div>
+                    <div [hidden]="duration.valid ||  duration.pristine ">The duration  is required </div>
+
+                    <div class="form-group float-label-control">
+                        <label for="">Average Payment : </label>
+                        <input type="number" class="form-control" placeholder="averagePayment" #averagePayment="ngModel" rows="1" name="averagePayment" [(ngModel)]="mission.averagePayment" >
+                    </div>
+                    <div [hidden]="averagePayment.valid ||  averagePayment.pristine ">The average Payment  is required </div>
+                    
+                    <div class="form-group float-label-control">
+                        <label for=""> File </label>
+                        <input type="file" class="form-control" placeholder="file" #file="ngModel" rows="1" name="file" [(ngModel)]="mission.file" >
+                    </div>
+                    
+                    <button class="btn btn-action" type="submit" [disabled]=!myForm.valid> Submit </button>
+
+                </form>
+
+
+                   
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Features
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Very customizable</li>
+                            <li>Works with Bootstrap's native form examples</li>
+                            <li>Uses CSS transitions for fallback browser support</li>
+                            <li>Placeholder override for labels when fields are empty</li>
+                            <li>Included authored jQuery plugin</li>
+                            <li>Optional bottom label positioning with the <code>.label-bottom</code> utility</li>
+                            <li>Works great with Chrome's AutoComplete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

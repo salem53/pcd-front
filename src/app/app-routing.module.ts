@@ -1,3 +1,6 @@
+import { AddStudyComponent } from './add-study/add-study.component';
+import { ProfilClientComponent } from './profil-client/profil-client.component';
+import { ExperienceComponent } from './experience/experience.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { HomeComponent } from './home/home.component';
@@ -26,6 +29,9 @@ import {ClientNewsfeedComponent} from "./client-newsfeed/client-newsfeed.compone
 import {AdminNewsfeedComponent} from "./admin-newsfeed/admin-newsfeed.component";
 import {AdminAuthguardService} from "./services/admin/admin-authguard.service";
 import {ClientAuthguardService} from "./services/client/client-authguard.service";
+import { CertificationComponent } from './certification/certification.component';
+import { AddMissionComponent } from './add-mission/add-mission.component';
+import { AddSkillComponent } from './add-skill/add-skill.component';
 
 const routes: Routes = [
 
@@ -54,7 +60,12 @@ const routes: Routes = [
   { path: 'updateFreelancer/:id', component: UpdateFreelancerComponent,canActivate: [AdminAuthguardService] },
   { path: 'updateClient/:id', component: UpdateClientComponent,canActivate: [AdminAuthguardService] },
   { path: 'updateAdmin/:id', component: UpdateAdminComponent,canActivate: [AdminAuthguardService] },
+  { path: 'newExperience/:id', component: ExperienceComponent },
+  { path: 'newCertification/:idFreelancer', component: CertificationComponent },
+  {path: 'newMission/:idClient', component: AddMissionComponent},
+  {path: 'newStudy/:idFreelancer', component: AddStudyComponent }
 
+  
 ];
 
 @NgModule({

@@ -1,0 +1,109 @@
+<header id="head" class="secondary"></header>
+<!-- container -->
+<div class="container">
+    <div class="row">
+        <h2>New Experience</h2>
+        <p class="lead">
+           
+            <small class="text-muted">Add new one in order to ameriorate your profil</small>
+        </p>
+
+        <!--<div class="alert alert-warning">
+            <h4>Missing SELECT Support</h4>
+            This feature does not currently support SELECT tags - I'm still working out a way to make them work with Bootstrap's native examples.
+        </div>
+    -->
+        <hr />
+
+        <div class="row">
+            <div class="col-sm-8">
+
+                <h4 class="page-header">Default Implementation</h4>
+                <form role="form" #myForm=ngForm (ngSubmit)=newExperience(myForm)>
+                   <!-- <div class="form-group float-label-control">
+                        <label for="">id</label>
+                        <input type="text" class="form-control" placeholder="Username" name="id"  >
+                    </div>
+                    -->
+                    <div class="form-group float-label-control">
+                        <label for="">Position Title</label>
+                        <input type="text" class="form-control" placeholder="position" #position="ngModel" name="position" [(ngModel)]="exp.positionTitle" required>
+                    </div>
+                    <div [hidden]="position.valid || position.pristine">The position Title is required </div>
+                    <div class="form-group float-label-control">
+                        <label for=""> Company </label>
+                        <input type="text" class="form-control" placeholder="Company" #company="ngModel" rows="1" name="company" [(ngModel)]="exp.company" required>
+                    </div>
+                    <div [hidden]="company.valid || company.pristine ">The company name is required </div>
+                    
+                       
+                    <div class="form-group float-label-control">
+                        <label for=""> Begining Date </label>
+                        <input type="date" class="form-control" placeholder="begining date" #beginingDate="ngModel" rows="1" name="beginingDate" [(ngModel)]="hexperience.beginingDate" required>
+                    </div>
+                    <div [hidden]=" beginingDate.valid ||  beginingDate.pristine ">The Begining Date  is required </div>
+                  
+
+
+                    <div class="form-group float-label-control">
+                        <label for=""> Ending Date </label>
+                        <input type="date" class="form-control" placeholder="ending date" #endingDate="ngModel" rows="1" name="endingDate" [(ngModel)]="hexperience.endingDate" required>
+                    </div>
+                    <div [hidden]="endingDate.valid || endingDate.pristine ">The ending Date  is required </div>
+
+                    <div class="form-group float-label-control">
+                        <label for=""> Description </label>
+                        <input type="text" class="form-control" placeholder="description" #description="ngModel" rows="1" name="description" [(ngModel)]="hexperience.description" >
+                    </div>
+                    <div class="form-group float-label-control">
+                        <label for=""> Job Type </label>
+                        <input type="text" class="form-control" placeholder="jobType" #jobType="ngModel" rows="1" name="jobType" [(ngModel)]="hexperience.jobType" required>
+                    </div>
+                    <div [hidden]="jobType.valid || jobType.pristine ">The job Type  is required </div>
+  
+                    <button class="btn btn-action" type="submit" [disabled]=!myForm.valid> Sign in </button>
+
+                </form>
+
+<!--
+                <h4 class="page-header">Bottom Labels</h4>
+                <form role="form">
+                    <div class="form-group float-label-control label-bottom">
+                        <label for="">Username</label>
+                        <input type="email" class="form-control" placeholder="Username">
+                    </div>
+                </form>
+
+
+                <h4 class="page-header">Placeholder Overrides</h4>
+                <form role="form">
+                    <div class="form-group float-label-control">
+                        <label for="">Email Address</label>
+                        <input type="email" class="form-control" placeholder="What's your email address?">
+                    </div>
+                </form>
+-->         
+            </div>
+            <div class="col-sm-4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h3 class="panel-title">
+                            Features
+                        </h3>
+                    </div>
+                    <div class="panel-body">
+                        <ul>
+                            <li>Very customizable</li>
+                            <li>Works with Bootstrap's native form examples</li>
+                            <li>Uses CSS transitions for fallback browser support</li>
+                            <li>Placeholder override for labels when fields are empty</li>
+                            <li>Included authored jQuery plugin</li>
+                            <li>Optional bottom label positioning with the <code>.label-bottom</code> utility</li>
+                            <li>Works great with Chrome's AutoComplete</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

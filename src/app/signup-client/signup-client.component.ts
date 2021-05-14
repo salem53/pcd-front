@@ -18,7 +18,7 @@ export class SignupClientComponent implements OnInit {
 
     this.service.createClient(myform).subscribe(
       response => {
-        sessionStorage.setItem('username', myform.value.clientEamil);
+        sessionStorage.setItem('username', myform.value.clientEmail);
         /*sessionStorage.setItem('password', password)*/
         sessionStorage.setItem('role', "client");
         sessionStorage.setItem('firstName', myform.value.clientFirstName);
